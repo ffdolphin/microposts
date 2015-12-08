@@ -1,0 +1,58 @@
+<h1>
+	<%= gravatar_for @user %>
+	<%= @user.name %>さんの情報編集
+</h1>
+
+<%= form_for(@user, html: { class: "form-horizontal" }) do |f| %>
+  <% if @user.errors.present? %>
+    <div class="alert alert-danger">
+      <%= alert %>
+      <ul>
+        <% @user.errors.full_messages.each do |full_message| %>
+          <li>
+            <%= full_message %>
+          </li>
+        <% end %> 
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">プロフィール：</label>
+    <div class="col-sm-6">
+      <%= f.text_area :profile, :class => "form-control", :rows => 5 %>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">メールアドレス：</label>
+    <div class="col-sm-4">
+      <%= f.email_field :email, :class => "form-control" %>
+    </div>
+    <div class="col-sm-6">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">地域：</label>
+    <div class="col-sm-4">
+      <%= f.text_field :area, :class => "form-control" %>
+    </div>
+    <div class="col-sm-6">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Web：</label>
+    <div class="col-sm-4">
+      <%= f.text_field :website, :class => "form-control" %>
+    </div>
+    <div class="col-sm-6">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2">
+     <%= f.submit class: "btn btn-primary" %>
+    </div>
+    <div class="col-sm-8">
+    </div>
+  </div>
+<% end %>
