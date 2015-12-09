@@ -7,9 +7,10 @@ class User < ActiveRecord::Base
 					  uniqueness: { case_sensitive: false }
 	has_secure_password
 
+	# 255文字以下
   validates :profile , length: { maximum: 255 }
-  # 内容は必須入力かつ2文字以上30文字以下
+  # 255文字以下
   validates :area , length: { maximum: 255 }
-  #0以上の数字のみ
+  # 255文字以下
   validates :website , length: { maximum: 255 }
 end
