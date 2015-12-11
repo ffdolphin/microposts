@@ -1,15 +1,15 @@
 <h1><%= @user.name %>さんをフォローしている人</h1>
 <div class="row">
 	<div class="col col-md-offset-2 col-md-8">
-		<% @followers.each do |follower| %>
-		<span class="followlists">
-			<li>
-				<%= link_to gravatar_for(follower, size: 50), follower %>
-				<span class="user"><%= link_to follower.name, follower %></span>
-				<span class="content"><%= follower.profile %></span>
-			</li>
-		</span>
-		<% end %>
+		<ul style="list-style: none;" class="followlists">
+			<% @followers.each do |follower| %>
+				<li>
+					<%= link_to gravatar_for(follower, size: 50), follower %>
+					<span class="user"><%= link_to follower.name, follower %></span>
+					<span class="content"><%= follower.profile %></span>
+				</li>
+			<% end %>
+		</ul>
 	</div>
 	<div class="col col-md-2">
 	</div>
