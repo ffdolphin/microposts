@@ -42,6 +42,6 @@ class User < ActiveRecord::Base
 	end
 
 	def feed_items
-		Micropst.where(user_id: following_user_ids + [self.id])
+		Micropost.where(user_id: following_user_ids + [self.id])
 	end
 end
