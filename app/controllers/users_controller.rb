@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
+    #フォローしているユーザーを表示
+    @followings = @user.following_users
+    #フォローされているユーザーを表示
+    @followers = @user.follower_users
   end
 
   def new
@@ -33,6 +37,18 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  #フォローしているユーザーを表示
+  def followings
+    @user = User.find(params[:id])
+    @followings = @user.following_users
+  end
+
+  #フォローされているユーザーを表示
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.follower_users
   end
 
   private

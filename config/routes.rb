@@ -6,6 +6,13 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   resources :users, except: [:destroy]
+  resources :users do
+  	# memberの場合は必ずidが必要。collectionの場合はcreateやnewで使う。
+  	member do
+  		get 'followings'
+      get 'followers'
+  	end
+  end
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts
   resources :relationships, only: [:create, :destroy]
