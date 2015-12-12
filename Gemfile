@@ -52,3 +52,7 @@ group :development do
 end
 
 gem 'rails_12factor', group: :production
+
+gem 'kaminari'
+
+gem 'kaminari-bootstrap', '~> 3.0.1'

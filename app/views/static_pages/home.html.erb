@@ -10,7 +10,15 @@
 		</aside>
 		<div class="col-md-8">
 			<h3>Micropost Feed</h3>
+			<div style="text-align: center;">
+	      <%= paginate @pages %>
+	    </div>
+
 			<%= render 'shared/feed' %>
+			
+			<div style="text-align: center;">
+	      <%= paginate @pages %>
+	    </div>
 		</div>
 	</div>
 <% else %>

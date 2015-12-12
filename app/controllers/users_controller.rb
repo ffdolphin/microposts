@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     @followings = @user.following_users
     #フォローされているユーザーを表示
     @followers = @user.follower_users
+    #ページネーション
+    @pages = @microposts.page params[:page]
   end
 
   def new
