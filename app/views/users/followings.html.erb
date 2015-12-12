@@ -3,7 +3,7 @@
 	<div class="col col-md-offset-2 col-md-8">
 		<ul style="list-style: none;" class="followlists">
 			<% @followings.each do |following| %>
-				<li class="clearfix" style>
+				<li class="clearfix">
 					<%= link_to gravatar_for(following, size: 50), following %>
 					<span class="user"><%= link_to following.name, following %></span>
 					<span class="content"><%= following.profile %></span>

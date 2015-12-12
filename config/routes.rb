@@ -11,10 +11,15 @@ Rails.application.routes.draw do
   	member do
   		get 'followings'
       get 'followers'
+      get 'list'
   	end
   end
 
+  concern :paginatable do
+    get '(page/:page)', :action => :index, :on => :collection, :as => ''
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
-  resources :microposts
+  resources :microposts, :concerns => :paginatable
   resources :relationships, only: [:create, :destroy]
 end

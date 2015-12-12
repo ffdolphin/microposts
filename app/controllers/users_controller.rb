@@ -4,13 +4,12 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.order(created_at: :desc)
+    #ページネーション
+    @microposts = @user.microposts.order(created_at: :desc).page params[:page]
     #フォローしているユーザーを表示
     @followings = @user.following_users
     #フォローされているユーザーを表示
     @followers = @user.follower_users
-    #ページネーション
-    @pages = @microposts.page params[:page]
   end
 
   def new
@@ -51,6 +50,11 @@ class UsersController < ApplicationController
   def followers
     @user = User.find(params[:id])
     @followers = @user.follower_users
+  end
+
+  #登録しているユーザーを表示
+  def list
+    @users = User.all
   end
 
   private
