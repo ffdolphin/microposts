@@ -11,8 +11,13 @@ Rails.application.routes.draw do
   	member do
   		get 'followings'
       get 'followers'
-      get 'list'
   	end
+  end
+
+  resource :user do
+    collection do
+      get 'list'
+    end
   end
 
   concern :paginatable do
